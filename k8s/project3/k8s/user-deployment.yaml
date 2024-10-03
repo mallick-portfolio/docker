@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userapp-deployment
+  labels:
+    app: userapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userapp
+  template:
+    metadata:
+      labels:
+        app: userapp
+    spec:
+      containers:
+      - name: userapp
+        image: tamal008/userapp:02
+        env:
+          - name: AUTH_API
+            value: '10.99.27.188'
