@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authapp-deployment
+  labels:
+    app: authapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authapp
+  template:
+    metadata:
+      labels:
+        app: authapp
+    spec:
+      containers:
+      - name: authapp
+        image: tamal008/authapp:02

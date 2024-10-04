@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usersapp-deployment
+  labels:
+    app: usersapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usersapp
+  template:
+    metadata:
+      labels:
+        app: usersapp
+    spec:
+      containers:
+      - name: usersapp
+        image: tamal008/usersapp:03
+        env:
+        - name: AUTH_ADDRESS
+          value: "authapp-service.default"
